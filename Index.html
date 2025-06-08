@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alen Vadassery | Technical Product Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- 
+    Chosen Palette: "Cool Steel" - A modern and professional palette using Slate gray for backgrounds and text, with a strong Indigo blue as the primary accent for interactive elements and highlights. This creates a clean, tech-focused, and trustworthy aesthetic.
+
+    Application Structure Plan: The SPA is designed as a narrative-driven portfolio. It starts with a high-impact hero section and key quantitative achievements. The core is an interactive vertical timeline visualizing career progression. This is followed by a skills dashboard with a radar chart, and a new "AI Assistant" section. This structure is more engaging than a traditional resume, allowing users to explore his story and skills interactively. The Gemini-powered AI Assistant adds a "wow" factor and practical utility for recruiters.
+
+    Visualization & Content Choices:
+    - Key Achievements (Inform/Impress): Displayed as prominent "Stat Cards" using HTML/Tailwind for immediate impact.
+    - Career Journey (Change/Organize): A custom interactive timeline (HTML/CSS/JS) is chosen over a static list to visually represent career growth. Interaction: Click to expand/collapse details, plus a new "Summarize Role ✨" button powered by the Gemini API.
+    - Skills (Compare/Organize): A Radar Chart (Chart.js) provides a holistic comparison of core competencies.
+    - AI Cover Letter Assistant (Engage/Impress): A new interactive section uses the Gemini API to generate a cover letter snippet based on a user-provided job description and the resume data. This demonstrates practical AI application.
+    - The choices adhere to the NO SVG/Mermaid rule, using Chart.js for canvas-based charts and custom HTML/CSS for other visuals.
+
+    CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
+    -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            color: #1e293b; /* slate-800 */
+        }
+        .nav-link {
+            transition: color 0.3s, border-color 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link.active, .nav-link:hover {
+            color: #4f46e5; /* indigo-600 */
+            border-bottom-color: #4f46e5;
+        }
+        .stat-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .timeline-item .timeline-content {
+            transition: max-height 0.7s ease-in-out, opacity 0.5s ease-in-out, transform 0.7s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            transform: translateY(-10px);
+            overflow: hidden;
+        }
+        .timeline-item.active .timeline-content {
+            max-height: 1500px;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .timeline-dot {
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .timeline-item.active .timeline-dot {
+            background-color: #4f46e5; /* indigo-600 */
+            transform: scale(1.25);
+        }
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 40vh;
+            width: 90%;
+            max-width: 500px;
+        }
+        .gemini-btn {
+            background: linear-gradient(to right, #4f46e5, #818cf8);
+        }
+        .loader {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #FFF;
+            border-bottom-color: transparent;
+            border-radius: 50%;
+            display: inline-block;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+        }
+        @keyframes rotation {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <a href="#hero" class="text-2xl font-bold text-indigo-600">Alen Vadassery</a>
+                </div>
+                <div class="hidden md:block">
+                    <nav id="nav-menu" class="ml-10 flex items-baseline space-x-4">
+                        <a href="#highlights" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700">Highlights</a>
+                        <a href="#journey" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700">Journey</a>
+                        <a href="#skills" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700">Skills</a>
+                        <a href="#ai-assistant" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700">AI Assistant ✨</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="py-20 md:py-28 bg-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight">
+                    Technical Product Manager
+                </h1>
+                <p class="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-slate-600">
+                    A results-oriented leader with a 10+ year track record of delivering impactful digital solutions by blending 4 years of dedicated product leadership with a 7-year engineering foundation. Expert in bridging business goals and technical execution to drive revenue and enhance user experience.
+                </p>
+                <div class="mt-8 flex justify-center space-x-4">
+                    <a href="mailto:alenvadassery@gmail.com" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+                        Contact Me
+                    </a>
+                    <a href="https://www.linkedin.com/in/alenvadassery/" target="_blank" class="inline-flex items-center justify-center px-5 py-3 border border-indigo-200 text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200">
+                        LinkedIn Profile
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Highlights Section -->
+        <section id="highlights" class="py-16 sm:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">Career Highlights</h2>
+                    <p class="mt-4 text-lg text-slate-600">Quantifiable impact delivered through strategic product leadership.</p>
+                </div>
+                <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    <div class="stat-card p-8 bg-white rounded-2xl shadow-lg">
+                        <h3 class="text-5xl font-bold text-indigo-600">$10.4M</h3>
+                        <p class="mt-4 text-lg font-medium text-slate-800">Annual Revenue Secured</p>
+                        <p class="mt-2 text-slate-600">Led a critical platform integration that retained key business partners and their entire revenue stream.</p>
+                    </div>
+                    <div class="stat-card p-8 bg-white rounded-2xl shadow-lg">
+                        <h3 class="text-5xl font-bold text-indigo-600">$98K+</h3>
+                        <p class="mt-4 text-lg font-medium text-slate-800">Annualized Benefit</p>
+                        <p class="mt-2 text-slate-600">Enhanced an in-app tool, driving significant sales associate efficiency and reducing support overhead.</p>
+                    </div>
+                    <div class="stat-card p-8 bg-white rounded-2xl shadow-lg">
+                        <h3 class="text-5xl font-bold text-indigo-600">>85%</h3>
+                        <p class="mt-4 text-lg font-medium text-slate-800">Code Quality & Coverage</p>
+                        <p class="mt-2 text-slate-600">Maintained high platform health and security standards through rigorous testing and compliance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Career Journey Section -->
+        <section id="journey" class="py-16 sm:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">My Career Journey</h2>
+                    <p class="mt-4 text-lg text-slate-600">From building the code to defining the vision. Click each role to see the details.</p>
+                </div>
+                <div id="timeline-container" class="mt-16 max-w-3xl mx-auto">
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-16 sm:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">Skills & Proficiencies</h2>
+                    <p class="mt-4 text-lg text-slate-600">A balanced blend of product strategy, technical depth, and agile leadership.</p>
+                </div>
+                <div class="mt-12 grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+                    <div class="chart-container">
+                        <canvas id="skillsRadarChart"></canvas>
+                    </div>
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-xl font-bold text-indigo-600">Technical Stack</h3>
+                            <p class="mt-2 text-slate-600"><strong class="text-slate-800">Languages:</strong> C#, Java, SQL, Javascript<br><strong class="text-slate-800">Web Tech:</strong> .NET, Web API, React, Angular<br><strong class="text-slate-800">Databases:</strong> MS SQL Server, Elasticsearch<br><strong class="text-slate-800">Architecture:</strong> Micro-Frontend, Microservices</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-indigo-600">Product & Agile Toolkit</h3>
+                            <p class="mt-2 text-slate-600"><strong class="text-slate-800">Methodologies:</strong> Agile, Scrum, Kanban<br><strong class="text-slate-800">Tools:</strong> JIRA, VersionOne, Confluence<br><strong class="text-slate-800">Practices:</strong> SDLC, CI/CD Concepts, A/B Testing, User Story Mapping, Roadmapping</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Assistant Section -->
+        <section id="ai-assistant" class="py-16 sm:py-24 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">AI Cover Letter Assistant ✨</h2>
+                    <p class="mt-4 text-lg text-slate-600">Paste a job description below, and let Gemini craft a personalized cover letter snippet highlighting my most relevant experience.</p>
+                </div>
+                <div class="mt-12">
+                    <textarea id="job-description" class="w-full h-48 p-4 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition" placeholder="Paste the full job description here..."></textarea>
+                    <div class="mt-4 text-center">
+                        <button id="generate-letter-btn" class="gemini-btn inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white hover:opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed">
+                            <span>Generate Snippet</span>
+                        </button>
+                    </div>
+                    <div id="cover-letter-output" class="mt-8 p-6 bg-slate-50 border border-slate-200 rounded-lg min-h-[100px] text-slate-700 whitespace-pre-wrap">
+                        Your generated cover letter snippet will appear here.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Certifications are combined in the script but can have a section if needed -->
+        <section id="education" class="py-16 sm:py-24 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">Education & Certifications</h2>
+                    <p class="mt-4 text-lg text-slate-600">Foundations of knowledge and commitment to continuous learning.</p>
+                </div>
+                <div class="mt-12 grid gap-10 md:grid-cols-2">
+                    <div class="bg-white p-8 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-bold text-slate-900">Education</h3>
+                        <div class="mt-4 space-y-3 text-slate-700">
+                            <p><strong class="text-indigo-700">Master of Business Administration (MBA)</strong><br>Punjab Technical University, 2022</p>
+                            <p><strong class="text-indigo-700">Bachelor of Engineering (B.E.), ECE</strong><br>Punjab Technical University, 2013</p>
+                        </div>
+                    </div>
+                     <div class="bg-white p-8 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-bold text-slate-900">Certifications & Awards</h3>
+                        <div class="mt-4 space-y-3 text-slate-700">
+                            <p><strong class="text-indigo-700">Certified Scrum Product Owner (CSPO)</strong><br>Scrum Alliance</p>
+                            <p><strong class="text-indigo-700">SAFe® Product Owner/Product Manager (POPM)</strong><br>Scaled Agile, Inc.</p>
+                             <p><strong class="text-indigo-700">Awards:</strong> Spirit of Service, Star of the Month, CEO Award</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center text-sm text-slate-500">
+            <p>&copy; 2025 Alen Vadassery. All Rights Reserved.</p>
+            <p class="mt-1">Interactive resume enhanced with the Gemini API.</p>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const journeyData = [
+            {
+                role: "Digital Product Owner/Manager",
+                company: "Allstate Solutions Pvt. Ltd.",
+                duration: "2021 – Present",
+                active: true,
+                details: [
+                    "Owned the complete product lifecycle for the Allstate Advisor Pro (AAP) platform, steering strategic initiatives across customer experience, profitability, and platform modernization.",
+                    "<strong>Customer Experience & Efficiency:</strong> Enhanced the Whatfix in-app guidance tool, leading to an estimated annualized benefit of <strong>$98,932</strong>. Resolved open accessibility (A11Y) findings, ensuring WCAG compliance.",
+                    "<strong>Growth & Profitability:</strong> Spearheaded the critical integration of Answer Financial (AF), securing <strong>$10.4 million in annual revenue</strong> and preventing a potential loss of $15.1 million.",
+                    "<strong>Product & Technical Enablement:</strong> Led the enablement of Allstate Sales Center (ASC) products, supporting key customer life events. Improved system observability, contributing to a faster Mean Time To Resolution (MTTR).",
+                    "<strong>Agile & Backlog Management:</strong> Defined the product vision, translated business goals into actionable user stories, and managed the team backlog to ensure alignment and continuous improvement.",
+                    "<strong>Compliance & Platform Health:</strong> Maintained over <strong>85% test case coverage</strong>, ensured zero pending vulnerabilities, and led the migration from CMS to RDM REST APIs."
+                ]
+            },
+            {
+                role: "Senior Lead Consultant",
+                company: "Allstate Solutions Pvt. Ltd.",
+                duration: "2018 – 2021",
+                details: [
+                    "Led and provided technical expertise for multiple high-impact projects, bridging the gap between business requirements and technical execution.",
+                    "<strong>Project: ExtraHands Application:</strong> Led the complete technical migration of the application from a vendor to the Allstate internal environment. Acted as the team's Scrum Master and de-facto Product Owner, managing the backlog and ensuring on-time project delivery.",
+                    "<strong>Project: Transformative Growth:</strong> Developed new insurance product offerings using modern technology stacks (React, Angular, Micro-Frontend) to enhance customer experience. Implemented complex business logic and delivered fully tested source code."
+                ]
+            },
+            {
+                role: "Software Engineer",
+                company: "Emids Technologies Pvt. Ltd.",
+                duration: "2014 – 2018",
+                details: [
+                    "Developed and maintained enterprise software solutions for major clients in the healthcare domain, contributing to all phases of the SDLC.",
+                    "<strong>Project: Greenway Health:</strong> Designed and implemented back-end services and engineered a robust role-based access control system for a complex healthcare transaction platform.",
+                    "<strong>Project: Patient Engagement Portal:</strong> Contributed to a patient-facing portal for scheduling appointments and managing health records. Worked on performance/load testing and requirement grooming.",
+                ]
+            }
+        ];
+
+        const fullResumeContext = `Alen Vadassery's resume details: ${JSON.stringify(journeyData)}. Skills include Product Strategy, Technical Leadership in C#, .NET, Java, React, and Agile Methodologies.`;
+
+        async function callGeminiAPI(prompt) {
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+            const payload = {
+                contents: [{
+                    role: "user",
+                    parts: [{ text: prompt }]
+                }]
+            };
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API call failed with status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    return result.candidates[0].content.parts[0].text;
+                } else {
+                    return "Sorry, I couldn't generate a response. The API returned an unexpected format.";
+                }
+            } catch (error) {
+                console.error("Gemini API call error:", error);
+                return `An error occurred while contacting the AI Assistant. Please check the console for details.`;
+            }
+        }
+        
+        const timelineContainer = document.getElementById('timeline-container');
+        journeyData.forEach((job, index) => {
+            const item = document.createElement('div');
+            item.className = 'timeline-item relative pl-8 sm:pl-12 py-4 border-l-2 border-slate-200';
+            if (job.active) item.classList.add('active');
+
+            item.innerHTML = `
+                <div class="timeline-dot absolute top-5 -left-[9px] w-4 h-4 bg-slate-300 rounded-full border-4 border-white cursor-pointer"></div>
+                <div class="cursor-pointer" data-action="toggle">
+                    <h3 class="text-xl font-bold text-slate-800">${job.role}</h3>
+                    <p class="text-indigo-600 font-semibold">${job.company}</p>
+                    <p class="text-sm text-slate-500 font-medium">${job.duration}</p>
+                </div>
+                <div class="timeline-content mt-4 pr-4">
+                     <div class="prose prose-sm max-w-none text-slate-600 space-y-3">
+                        ${job.details.map(d => `<p>${d}</p>`).join('')}
+                    </div>
+                    <div class="mt-4">
+                        <button class="summarize-btn gemini-btn text-white text-xs font-semibold px-3 py-1.5 rounded-full hover:opacity-90 transition disabled:opacity-50" data-index="${index}">
+                            <span>Summarize this Role ✨</span>
+                        </button>
+                    </div>
+                    <div class="role-summary-output mt-4 p-4 bg-slate-50 border border-slate-200 rounded-lg text-slate-700" style="display: none;"></div>
+                </div>
+            `;
+            timelineContainer.appendChild(item);
+            
+            item.addEventListener('click', (e) => {
+                if(e.target.closest('[data-action="toggle"]') || e.target.closest('.timeline-dot')) {
+                    document.querySelectorAll('.timeline-item').forEach(el => {
+                        if (el !== item) el.classList.remove('active');
+                    });
+                    item.classList.toggle('active');
+                }
+            });
+
+            item.querySelector('.summarize-btn').addEventListener('click', async (e) => {
+                const button = e.currentTarget;
+                const outputDiv = item.querySelector('.role-summary-output');
+                const jobData = journeyData[button.dataset.index];
+
+                button.disabled = true;
+                button.innerHTML = '<span class="loader"></span>';
+                outputDiv.style.display = 'block';
+                outputDiv.textContent = 'Generating summary...';
+
+                const prompt = `You are a professional resume writer. Based on the following job details for Alen Vadassery, write a concise, narrative-style summary paragraph of his role and key achievements. Focus on impact and responsibilities.
+
+                **Job Details:**
+                Role: ${jobData.role}
+                Company: ${jobData.company}
+                Duration: ${jobData.duration}
+                Responsibilities & Achievements: ${jobData.details.join(' ')}
+                
+                Generate only the summary paragraph.`;
+                
+                const summary = await callGeminiAPI(prompt);
+                outputDiv.innerHTML = summary.replace(/\n/g, '<br>');
+                button.disabled = false;
+                button.innerHTML = '<span>Summarize this Role ✨</span>';
+            });
+        });
+
+        const generateBtn = document.getElementById('generate-letter-btn');
+        const jobDescTextarea = document.getElementById('job-description');
+        const letterOutput = document.getElementById('cover-letter-output');
+
+        generateBtn.addEventListener('click', async () => {
+            const jobDesc = jobDescTextarea.value;
+            if (!jobDesc.trim()) {
+                letterOutput.textContent = 'Please paste a job description first.';
+                return;
+            }
+
+            generateBtn.disabled = true;
+            generateBtn.innerHTML = '<span class="loader"></span> Generating...';
+            letterOutput.textContent = 'Crafting the perfect snippet with Gemini...';
+
+            const prompt = `You are a professional career assistant. Based on Alen Vadassery's resume context and the provided job description, write a concise, impactful, and professional cover letter paragraph (around 100-150 words). Connect Alen's most relevant skills and quantifiable achievements directly to the key requirements in the job description.
+
+            **Alen Vadassery's Resume Context:**
+            ${fullResumeContext}
+            
+            **Job Description to Target:**
+            ${jobDesc}
+
+            Generate only the single cover letter paragraph text.`;
+
+            const snippet = await callGeminiAPI(prompt);
+            letterOutput.innerHTML = snippet.replace(/\n/g, '<br>');
+            generateBtn.disabled = false;
+            generateBtn.innerHTML = '<span>Generate Snippet</span>';
+        });
+
+        const radarCtx = document.getElementById('skillsRadarChart').getContext('2d');
+        new Chart(radarCtx, {
+            type: 'radar',
+            data: {
+                labels: ['Product Strategy', 'Technical Expertise', 'Agile & Execution', 'Stakeholder Comms', 'Data Analysis', 'UX/UI Principles'],
+                datasets: [{
+                    label: 'Competency Level',
+                    data: [9, 8, 9, 8.5, 7.5, 7],
+                    backgroundColor: 'rgba(79, 70, 229, 0.2)',
+                    borderColor: 'rgba(79, 70, 229, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(79, 70, 229, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(79, 70, 229, 1)'
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
+                        grid: { color: 'rgba(0, 0, 0, 0.1)' },
+                        pointLabels: {
+                            font: { size: 12, weight: 'bold' },
+                            color: '#334155'
+                        },
+                        ticks: {
+                            color: '#64748b',
+                            backdropColor: 'rgba(255, 255, 255, 0.75)',
+                            stepSize: 2
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 10
+                    }
+                },
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        });
+
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = navMenu.querySelectorAll('a');
+        const sections = document.querySelectorAll('main section');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    navLinks.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href').substring(1) === id);
+                    });
+                }
+            });
+        }, { rootMargin: '-50% 0px -50% 0px' });
+        
+        sections.forEach(section => observer.observe(section));
+    });
+    </script>
+</body>
+</html>
