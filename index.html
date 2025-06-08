@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <!-- 
     Chosen Palette: "Cool Steel" - A modern and professional palette using Slate gray for backgrounds and text, with a strong Indigo blue as the primary accent for interactive elements and highlights. This creates a clean, tech-focused, and trustworthy aesthetic.
 
@@ -25,24 +27,33 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* slate-50 */
-            color: #1e293b; /* slate-800 */
+            background-color: #f8fafc;
+            /* slate-50 */
+            color: #1e293b;
+            /* slate-800 */
         }
+
         .nav-link {
             transition: color 0.3s, border-color 0.3s;
             border-bottom: 2px solid transparent;
         }
-        .nav-link.active, .nav-link:hover {
-            color: #4f46e5; /* indigo-600 */
+
+        .nav-link.active,
+        .nav-link:hover {
+            color: #4f46e5;
+            /* indigo-600 */
             border-bottom-color: #4f46e5;
         }
+
         .stat-card {
             transition: transform 0.3s, box-shadow 0.3s;
         }
+
         .stat-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
         }
+
         .timeline-item .timeline-content {
             transition: max-height 0.7s ease-in-out, opacity 0.5s ease-in-out, transform 0.7s ease-in-out;
             max-height: 0;
@@ -50,18 +61,23 @@
             transform: translateY(-10px);
             overflow: hidden;
         }
+
         .timeline-item.active .timeline-content {
             max-height: 1500px;
             opacity: 1;
             transform: translateY(0);
         }
+
         .timeline-dot {
             transition: background-color 0.3s, transform 0.3s;
         }
+
         .timeline-item.active .timeline-dot {
-            background-color: #4f46e5; /* indigo-600 */
+            background-color: #4f46e5;
+            /* indigo-600 */
             transform: scale(1.25);
         }
+
         .chart-container {
             position: relative;
             margin: auto;
@@ -71,6 +87,7 @@
         }
     </style>
 </head>
+
 <body class="antialiased">
 
     <!-- Header & Navigation -->
@@ -82,10 +99,14 @@
                 </div>
                 <div class="hidden md:block">
                     <nav id="nav-menu" class="ml-10 flex items-baseline space-x-4">
-                        <a href="#highlights" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700">Highlights</a>
-                        <a href="#journey" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700">Journey</a>
-                        <a href="#skills" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700">Skills</a>
-                        <a href="#education" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700">Education</a>
+                        <a href="#highlights"
+                            class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700">Highlights</a>
+                        <a href="#journey"
+                            class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700">Journey</a>
+                        <a href="#skills"
+                            class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700">Skills</a>
+                        <a href="#education"
+                            class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700">Education</a>
                     </nav>
                 </div>
             </div>
@@ -100,13 +121,17 @@
                     Technical Product Manager
                 </h1>
                 <p class="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-slate-600">
-                    A results-oriented leader with a 10+ year track record of delivering impactful digital solutions by blending 3 years of dedicated product leadership with a 8 years of engineering foundation. Expert in bridging business goals and technical execution to drive revenue and enhance user experience.
+                    A results-oriented leader with a 10+ year track record of delivering impactful digital solutions by
+                    blending 3 years of dedicated product leadership with a 8 years of engineering foundation. Expert in
+                    bridging business goals and technical execution to drive revenue and enhance user experience.
                 </p>
                 <div class="mt-8 flex justify-center space-x-4">
-                    <a href="mailto:alenvadassery@gmail.com" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+                    <a href="mailto:alenvadassery@gmail.com"
+                        class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
                         Contact Me
                     </a>
-                    <a href="https://www.linkedin.com/in/alenvadassery/" target="_blank" class="inline-flex items-center justify-center px-5 py-3 border border-indigo-200 text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200">
+                    <a href="https://www.linkedin.com/in/alenvadassery/" target="_blank"
+                        class="inline-flex items-center justify-center px-5 py-3 border border-indigo-200 text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200">
                         LinkedIn Profile
                     </a>
                 </div>
@@ -118,23 +143,27 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
                     <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">Career Highlights</h2>
-                    <p class="mt-4 text-lg text-slate-600">Quantifiable impact delivered through strategic product leadership.</p>
+                    <p class="mt-4 text-lg text-slate-600">Quantifiable impact delivered through strategic product
+                        leadership.</p>
                 </div>
                 <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                     <div class="stat-card p-8 bg-white rounded-2xl shadow-lg">
                         <h3 class="text-5xl font-bold text-indigo-600">$10.4M</h3>
                         <p class="mt-4 text-lg font-medium text-slate-800">Annual Revenue Secured</p>
-                        <p class="mt-2 text-slate-600">Led a critical platform integration that retained key business partners and their entire revenue stream.</p>
+                        <p class="mt-2 text-slate-600">Led a critical platform integration that retained key business
+                            partners and their entire revenue stream.</p>
                     </div>
                     <div class="stat-card p-8 bg-white rounded-2xl shadow-lg">
                         <h3 class="text-5xl font-bold text-indigo-600">$98K+</h3>
                         <p class="mt-4 text-lg font-medium text-slate-800">Annualized Benefit</p>
-                        <p class="mt-2 text-slate-600">Enhanced an in-app tool, driving significant sales associate efficiency and reducing support overhead.</p>
+                        <p class="mt-2 text-slate-600">Enhanced an in-app tool, driving significant sales associate
+                            efficiency and reducing support overhead.</p>
                     </div>
                     <div class="stat-card p-8 bg-white rounded-2xl shadow-lg">
                         <h3 class="text-5xl font-bold text-indigo-600">>85%</h3>
                         <p class="mt-4 text-lg font-medium text-slate-800">Code Quality & Coverage</p>
-                        <p class="mt-2 text-slate-600">Maintained high platform health and security standards through rigorous testing and compliance.</p>
+                        <p class="mt-2 text-slate-600">Maintained high platform health and security standards through
+                            rigorous testing and compliance.</p>
                     </div>
                 </div>
             </div>
@@ -145,7 +174,8 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
                     <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">My Career Journey</h2>
-                    <p class="mt-4 text-lg text-slate-600">From building the code to defining the vision. Click each role to see the details.</p>
+                    <p class="mt-4 text-lg text-slate-600">From building the code to defining the vision. Click each
+                        role to see the details.</p>
                 </div>
                 <div id="timeline-container" class="mt-16 max-w-3xl mx-auto">
                 </div>
@@ -157,7 +187,8 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
                     <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">Skills & Proficiencies</h2>
-                    <p class="mt-4 text-lg text-slate-600">A balanced blend of product strategy, technical depth, and agile leadership.</p>
+                    <p class="mt-4 text-lg text-slate-600">A balanced blend of product strategy, technical depth, and
+                        agile leadership.</p>
                 </div>
                 <div class="mt-12 grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
                     <div class="chart-container">
@@ -166,11 +197,18 @@
                     <div class="space-y-8">
                         <div>
                             <h3 class="text-xl font-bold text-indigo-600">Technical Stack</h3>
-                            <p class="mt-2 text-slate-600"><strong class="text-slate-800">Languages:</strong> C#, Java, SQL, Javascript<br><strong class="text-slate-800">Web Tech:</strong> .NET, Web API, React, Angular<br><strong class="text-slate-800">Databases:</strong> MS SQL Server, Elasticsearch<br><strong class="text-slate-800">Architecture:</strong> Micro-Frontend, Microservices</p>
+                            <p class="mt-2 text-slate-600"><strong class="text-slate-800">Languages:</strong> C#, Java,
+                                SQL, Javascript<br><strong class="text-slate-800">Web Tech:</strong> .NET, Web API,
+                                React, Angular<br><strong class="text-slate-800">Databases:</strong> MS SQL Server,
+                                Elasticsearch<br><strong class="text-slate-800">Architecture:</strong> Micro-Frontend,
+                                Microservices</p>
                         </div>
                         <div>
                             <h3 class="text-xl font-bold text-indigo-600">Product & Agile Toolkit</h3>
-                            <p class="mt-2 text-slate-600"><strong class="text-slate-800">Methodologies:</strong> Agile, Scrum, Kanban<br><strong class="text-slate-800">Tools:</strong> JIRA, VersionOne, Confluence<br><strong class="text-slate-800">Practices:</strong> SDLC, CI/CD Concepts, A/B Testing, User Story Mapping, Roadmapping</p>
+                            <p class="mt-2 text-slate-600"><strong class="text-slate-800">Methodologies:</strong> Agile,
+                                Scrum, Kanban<br><strong class="text-slate-800">Tools:</strong> JIRA, VersionOne,
+                                Confluence<br><strong class="text-slate-800">Practices:</strong> SDLC, CI/CD Concepts,
+                                A/B Testing, User Story Mapping, Roadmapping</p>
                         </div>
                     </div>
                 </div>
@@ -182,22 +220,28 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
                     <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">Education & Certifications</h2>
-                    <p class="mt-4 text-lg text-slate-600">Foundations of knowledge and commitment to continuous learning.</p>
+                    <p class="mt-4 text-lg text-slate-600">Foundations of knowledge and commitment to continuous
+                        learning.</p>
                 </div>
                 <div class="mt-12 grid gap-10 md:grid-cols-2">
                     <div class="bg-white p-8 rounded-lg shadow-sm">
                         <h3 class="text-xl font-bold text-slate-900">Education</h3>
                         <div class="mt-4 space-y-3 text-slate-700">
-                            <p><strong class="text-indigo-700">Master of Business Administration (MBA)</strong><br>Punjab Technical University, 2022</p>
-                            <p><strong class="text-indigo-700">Bachelor of Engineering (B.E.), ECE</strong><br>Punjab Technical University, 2013</p>
+                            <p><strong class="text-indigo-700">Master of Business Administration
+                                    (MBA)</strong><br>Punjab Technical University, 2022</p>
+                            <p><strong class="text-indigo-700">Bachelor of Engineering (B.E.), ECE</strong><br>Punjab
+                                Technical University, 2013</p>
                         </div>
                     </div>
-                     <div class="bg-white p-8 rounded-lg shadow-sm">
+                    <div class="bg-white p-8 rounded-lg shadow-sm">
                         <h3 class="text-xl font-bold text-slate-900">Certifications & Awards</h3>
                         <div class="mt-4 space-y-3 text-slate-700">
-                            <p><strong class="text-indigo-700">Certified Scrum Product Owner (CSPO)</strong><br>Scrum Alliance</p>
-                            <p><strong class="text-indigo-700">SAFe® Product Owner/Product Manager (POPM)</strong><br>Scaled Agile, Inc.</p>
-                             <p><strong class="text-indigo-700">Awards:</strong> Spirit of Service, Star of the Month, CEO Award</p>
+                            <p><strong class="text-indigo-700">Certified Scrum Product Owner (CSPO)</strong><br>Scrum
+                                Alliance</p>
+                            <p><strong class="text-indigo-700">SAFe® Product Owner/Product Manager
+                                    (POPM)</strong><br>Scaled Agile, Inc.</p>
+                            <p><strong class="text-indigo-700">Awards:</strong> Spirit of Service, Star of the Month,
+                                CEO Award</p>
                         </div>
                     </div>
                 </div>
@@ -212,52 +256,52 @@
     </footer>
 
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', () => {
 
-        const journeyData = [
-            {
-                role: "Digital Product Owner/Manager",
-                company: "Allstate Solutions Pvt. Ltd.",
-                duration: "2021 – Present",
-                active: true,
-                details: [
-                    "Owned the complete product lifecycle for the Allstate Advisor Pro (AAP) platform, steering strategic initiatives across customer experience, profitability, and platform modernization.",
-                    "<strong>Customer Experience & Efficiency:</strong> Enhanced the Whatfix in-app guidance tool, leading to an estimated annualized benefit of <strong>$98,932</strong>. Resolved open accessibility (A11Y) findings, ensuring WCAG compliance.",
-                    "<strong>Growth & Profitability:</strong> Spearheaded the critical integration of Answer Financial (AF), securing <strong>$10.4 million in annual revenue</strong> and preventing a potential loss of $15.1 million.",
-                    "<strong>Product & Technical Enablement:</strong> Led the enablement of Allstate Sales Center (ASC) products, supporting key customer life events. Improved system observability, contributing to a faster Mean Time To Resolution (MTTR).",
-                    "<strong>Agile & Backlog Management:</strong> Defined the product vision, translated business goals into actionable user stories, and managed the team backlog to ensure alignment and continuous improvement.",
-                    "<strong>Compliance & Platform Health:</strong> Maintained over <strong>85% test case coverage</strong>, ensured zero pending vulnerabilities, and led the migration from CMS to RDM REST APIs."
-                ]
-            },
-            {
-                role: "Senior Lead Consultant",
-                company: "Allstate Solutions Pvt. Ltd.",
-                duration: "2018 – 2021",
-                details: [
-                    "Led and provided technical expertise for multiple high-impact projects, bridging the gap between business requirements and technical execution.",
-                    "<strong>Project: ExtraHands Application:</strong> Led the complete technical migration of the application from a vendor to the Allstate internal environment. Acted as the team's Scrum Master and de-facto Product Owner, managing the backlog and ensuring on-time project delivery.",
-                    "<strong>Project: Transformative Growth:</strong> Developed new insurance product offerings using modern technology stacks (React, Angular, Micro-Frontend) to enhance customer experience. Implemented complex business logic and delivered fully tested source code."
-                ]
-            },
-            {
-                role: "Software Engineer",
-                company: "Emids Technologies Pvt. Ltd.",
-                duration: "2014 – 2018",
-                details: [
-                    "Developed and maintained enterprise software solutions for major clients in the healthcare domain, contributing to all phases of the SDLC.",
-                    "<strong>Project: Greenway Health:</strong> Designed and implemented back-end services and engineered a robust role-based access control system for a complex healthcare transaction platform.",
-                    "<strong>Project: Patient Engagement Portal:</strong> Contributed to a patient-facing portal for scheduling appointments and managing health records. Worked on performance/load testing and requirement grooming.",
-                ]
-            }
-        ];
-        
-        const timelineContainer = document.getElementById('timeline-container');
-        journeyData.forEach((job, index) => {
-            const item = document.createElement('div');
-            item.className = 'timeline-item relative pl-8 sm:pl-12 py-4 border-l-2 border-slate-200';
-            if (job.active) item.classList.add('active');
+            const journeyData = [
+                {
+                    role: "Digital Product Owner/Manager",
+                    company: "Allstate Solutions Pvt. Ltd.",
+                    duration: "2021 – Present",
+                    active: true,
+                    details: [
+                        "Owned the complete product lifecycle for the Allstate Advisor Pro (AAP) platform, steering strategic initiatives across customer experience, profitability, and platform modernization.",
+                        "<strong>Customer Experience & Efficiency:</strong> Enhanced the Whatfix in-app guidance tool, leading to an estimated annualized benefit of <strong>$98,932</strong>. Resolved open accessibility (A11Y) findings, ensuring WCAG compliance.",
+                        "<strong>Growth & Profitability:</strong> Spearheaded the critical integration of Answer Financial (AF), securing <strong>$10.4 million in annual revenue</strong> and preventing a potential loss of $15.1 million.",
+                        "<strong>Product & Technical Enablement:</strong> Led the enablement of Allstate Sales Center (ASC) products, supporting key customer life events. Improved system observability, contributing to a faster Mean Time To Resolution (MTTR).",
+                        "<strong>Agile & Backlog Management:</strong> Defined the product vision, translated business goals into actionable user stories, and managed the team backlog to ensure alignment and continuous improvement.",
+                        "<strong>Compliance & Platform Health:</strong> Maintained over <strong>85% test case coverage</strong>, ensured zero pending vulnerabilities, and led the migration from CMS to RDM REST APIs."
+                    ]
+                },
+                {
+                    role: "Senior Lead Consultant",
+                    company: "Allstate Solutions Pvt. Ltd.",
+                    duration: "2018 – 2021",
+                    details: [
+                        "Led and provided technical expertise for multiple high-impact projects, bridging the gap between business requirements and technical execution.",
+                        "<strong>Project: ExtraHands Application:</strong> Led the complete technical migration of the application from a vendor to the Allstate internal environment. Acted as the team's Scrum Master and de-facto Product Owner, managing the backlog and ensuring on-time project delivery.",
+                        "<strong>Project: Transformative Growth:</strong> Developed new insurance product offerings using modern technology stacks (React, Angular, Micro-Frontend) to enhance customer experience. Implemented complex business logic and delivered fully tested source code."
+                    ]
+                },
+                {
+                    role: "Software Engineer",
+                    company: "Emids Technologies Pvt. Ltd.",
+                    duration: "2014 – 2018",
+                    details: [
+                        "Developed and maintained enterprise software solutions for major clients in the healthcare domain, contributing to all phases of the SDLC.",
+                        "<strong>Project: Greenway Health:</strong> Designed and implemented back-end services and engineered a robust role-based access control system for a complex healthcare transaction platform.",
+                        "<strong>Project: Patient Engagement Portal:</strong> Contributed to a patient-facing portal for scheduling appointments and managing health records. Worked on performance/load testing and requirement grooming.",
+                    ]
+                }
+            ];
 
-            item.innerHTML = `
+            const timelineContainer = document.getElementById('timeline-container');
+            journeyData.forEach((job, index) => {
+                const item = document.createElement('div');
+                item.className = 'timeline-item relative pl-8 sm:pl-12 py-4 border-l-2 border-slate-200';
+                if (job.active) item.classList.add('active');
+
+                item.innerHTML = `
                 <div class="timeline-dot absolute top-5 -left-[9px] w-4 h-4 bg-slate-300 rounded-full border-4 border-white cursor-pointer"></div>
                 <div class="cursor-pointer" data-action="toggle">
                     <h3 class="text-xl font-bold text-slate-800">${job.role}</h3>
@@ -270,77 +314,78 @@
                     </div>
                 </div>
             `;
-            timelineContainer.appendChild(item);
-            
-            item.addEventListener('click', (e) => {
-                if(e.target.closest('[data-action="toggle"]') || e.target.closest('.timeline-dot')) {
-                    document.querySelectorAll('.timeline-item').forEach(el => {
-                        if (el !== item) el.classList.remove('active');
-                    });
-                    item.classList.toggle('active');
-                }
-            });
-        });
+                timelineContainer.appendChild(item);
 
-        const radarCtx = document.getElementById('skillsRadarChart').getContext('2d');
-        new Chart(radarCtx, {
-            type: 'radar',
-            data: {
-                labels: ['Product Strategy', 'Technical Expertise', 'Agile & Execution', 'Stakeholder Comms', 'Data Analysis', 'UX/UI Principles'],
-                datasets: [{
-                    label: 'Competency Level',
-                    data: [9, 8, 9, 8.5, 7.5, 7],
-                    backgroundColor: 'rgba(79, 70, 229, 0.2)',
-                    borderColor: 'rgba(79, 70, 229, 1)',
-                    borderWidth: 2,
-                    pointBackgroundColor: 'rgba(79, 70, 229, 1)',
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: 'rgba(79, 70, 229, 1)'
-                }]
-            },
-            options: {
-                maintainAspectRatio: false,
-                scales: {
-                    r: {
-                        angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
-                        grid: { color: 'rgba(0, 0, 0, 0.1)' },
-                        pointLabels: {
-                            font: { size: 12, weight: 'bold' },
-                            color: '#334155'
-                        },
-                        ticks: {
-                            color: '#64748b',
-                            backdropColor: 'rgba(255, 255, 255, 0.75)',
-                            stepSize: 2
-                        },
-                        suggestedMin: 0,
-                        suggestedMax: 10
+                item.addEventListener('click', (e) => {
+                    if (e.target.closest('[data-action="toggle"]') || e.target.closest('.timeline-dot')) {
+                        document.querySelectorAll('.timeline-item').forEach(el => {
+                            if (el !== item) el.classList.remove('active');
+                        });
+                        item.classList.toggle('active');
                     }
-                },
-                plugins: {
-                    legend: { display: false }
-                }
-            }
-        });
+                });
+            });
 
-        const navMenu = document.getElementById('nav-menu');
-        const navLinks = navMenu.querySelectorAll('a');
-        const sections = document.querySelectorAll('main section');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.id;
-                    navLinks.forEach(link => {
-                        link.classList.toggle('active', link.getAttribute('href').substring(1) === id);
-                    });
+            const radarCtx = document.getElementById('skillsRadarChart').getContext('2d');
+            new Chart(radarCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['User-Centric Design', 'Technical Expertise', 'Agile & Execution', 'Stakeholder Comms', 'Data Analysis', 'Product Strategy'],
+                    datasets: [{
+                        label: 'Competency Level',
+                        data: [8.5, 8.5, 9, 8.5, 7.5, 7],
+                        backgroundColor: 'rgba(79, 70, 229, 0.2)',
+                        borderColor: 'rgba(79, 70, 229, 1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgba(79, 70, 229, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(79, 70, 229, 1)'
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
+                            grid: { color: 'rgba(0, 0, 0, 0.1)' },
+                            pointLabels: {
+                                font: { size: 12, weight: 'bold' },
+                                color: '#334155'
+                            },
+                            ticks: {
+                                color: '#64748b',
+                                backdropColor: 'rgba(255, 255, 255, 0.75)',
+                                stepSize: 2
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 10
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    }
                 }
             });
-        }, { rootMargin: '-50% 0px -50% 0px' });
-        
-        sections.forEach(section => observer.observe(section));
-    });
+
+            const navMenu = document.getElementById('nav-menu');
+            const navLinks = navMenu.querySelectorAll('a');
+            const sections = document.querySelectorAll('main section');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id;
+                        navLinks.forEach(link => {
+                            link.classList.toggle('active', link.getAttribute('href').substring(1) === id);
+                        });
+                    }
+                });
+            }, { rootMargin: '-50% 0px -50% 0px' });
+
+            sections.forEach(section => observer.observe(section));
+        });
     </script>
 </body>
+
 </html>
