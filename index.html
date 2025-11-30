@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="Alen Vadassery | Technical Product Manager">
-    <meta property="og:description" content="Results-oriented leader blending product leadership with strong engineering foundations. View my interactive portfolio.">
+    <meta property="og:description"
+        content="Results-oriented leader blending product leadership with strong engineering foundations. View my interactive portfolio.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://alenvadassery.com"> <!-- Placeholder URL -->
-    <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Alen+Vadassery+Portfolio"> <!-- Placeholder Image -->
+    <meta property="og:url" content="https://alenvadassery.com">
+    <meta property="og:image" content="https://alenvadassery.com/og-image.jpg">
 
     <title>Alen Vadassery | Technical Product Manager</title>
-    
+
     <!-- Tailwind CSS with Dark Mode Config -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -32,24 +34,31 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
-        
+
         .nav-link {
             transition: color 0.3s, border-color 0.3s;
             border-bottom: 2px solid transparent;
         }
-        .nav-link.active, .nav-link:hover {
-            color: #4f46e5; /* indigo-600 */
+
+        .nav-link.active,
+        .nav-link:hover {
+            color: #4f46e5;
+            /* indigo-600 */
             border-bottom-color: #4f46e5;
         }
+
         /* Dark mode active link override */
-        .dark .nav-link.active, .dark .nav-link:hover {
-            color: #818cf8; /* indigo-400 */
+        .dark .nav-link.active,
+        .dark .nav-link:hover {
+            color: #818cf8;
+            /* indigo-400 */
             border-bottom-color: #818cf8;
         }
 
@@ -57,11 +66,13 @@
             transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
             border: 1px solid transparent;
         }
+
         .stat-card:hover {
             transform: translateY(-5px);
             /* Lighter shadow for dark mode visibility */
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); 
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
+
         .dark .stat-card:hover {
             box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.5);
             border-color: #334155;
@@ -74,20 +85,26 @@
             transform: translateY(-10px);
             overflow: hidden;
         }
+
         .timeline-item.active .timeline-content {
             max-height: 1500px;
             opacity: 1;
             transform: translateY(0);
         }
+
         .timeline-dot {
             transition: background-color 0.3s, transform 0.3s;
         }
+
         .timeline-item.active .timeline-dot {
-            background-color: #4f46e5; /* indigo-600 */
+            background-color: #4f46e5;
+            /* indigo-600 */
             transform: scale(1.25);
         }
+
         .dark .timeline-item.active .timeline-dot {
-            background-color: #818cf8; /* indigo-400 */
+            background-color: #818cf8;
+            /* indigo-400 */
         }
 
         .chart-container {
@@ -97,13 +114,14 @@
             width: 90%;
             max-width: 500px;
         }
-        
+
         /* Scroll Reveal Animation Classes */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
         }
+
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
@@ -116,6 +134,7 @@
             background-position: 0 0, 10px 10px;
             opacity: 0.1;
         }
+
         .dark .hero-pattern {
             background-image: radial-gradient(#818cf8 0.5px, transparent 0.5px), radial-gradient(#818cf8 0.5px, #0f172a 0.5px);
             opacity: 0.05;
@@ -127,10 +146,12 @@
             visibility: hidden;
             transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
         }
+
         #scrollTopBtn.show {
             opacity: 1;
             visibility: visible;
         }
+
         #scrollTopBtn:hover {
             transform: translateY(-2px);
         }
@@ -141,46 +162,67 @@
                 background-color: white !important;
                 color: black !important;
             }
+
             /* Hide non-essential elements */
-            header, #scrollTopBtn, .hero-pattern, .no-print {
+            header,
+            #scrollTopBtn,
+            .hero-pattern,
+            .no-print {
                 display: none !important;
             }
+
             /* Reset animations */
             .reveal {
                 opacity: 1 !important;
                 transform: none !important;
                 transition: none !important;
             }
+
             /* Simplify layout */
             section {
                 padding-top: 1rem !important;
                 padding-bottom: 2rem !important;
                 page-break-inside: avoid;
             }
+
             /* Expand grid for reading */
             .grid {
                 display: block !important;
             }
-            .stat-card, .bg-white, .bg-slate-50 {
+
+            .stat-card,
+            .bg-white,
+            .bg-slate-50 {
                 box-shadow: none !important;
                 border: 1px solid #ccc !important;
                 margin-bottom: 1rem;
                 page-break-inside: avoid;
                 background-color: transparent !important;
             }
+
             /* Text colors */
-            h1, h2, h3, h4, p, span, strong {
+            h1,
+            h2,
+            h3,
+            h4,
+            p,
+            span,
+            strong {
                 color: black !important;
-                -webkit-text-fill-color: black !important; /* Overrides gradient text */
+                -webkit-text-fill-color: black !important;
+                /* Overrides gradient text */
             }
+
             a {
                 text-decoration: none !important;
                 color: black !important;
             }
+
             a[href]:after {
                 content: " (" attr(href) ")";
                 font-size: 0.8em;
             }
+
             /* Hide chart in print as it might not render perfectly without JS wait */
             .chart-container {
                 display: none;
@@ -188,54 +230,121 @@
         }
     </style>
 </head>
-<body class="antialiased selection:bg-indigo-100 selection:text-indigo-800 dark:bg-slate-900 dark:text-slate-100 dark:selection:bg-indigo-900 dark:selection:text-indigo-200 transition-colors duration-300">
+
+<body
+    class="antialiased selection:bg-indigo-100 selection:text-indigo-800 dark:bg-slate-900 dark:text-slate-100 dark:selection:bg-indigo-900 dark:selection:text-indigo-200 transition-colors duration-300">
 
     <!-- Header & Navigation -->
-    <header id="header" class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800 shadow-sm transition-colors duration-300">
+    <header id="header"
+        class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800 shadow-sm transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex-shrink-0">
-                    <a href="#hero" class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-indigo-800 dark:from-indigo-400 dark:to-indigo-200">Alen Vadassery</a>
+                    <a href="#hero"
+                        class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-indigo-800 dark:from-indigo-400 dark:to-indigo-200">Alen
+                        Vadassery</a>
                 </div>
                 <div class="hidden md:flex items-center gap-6">
                     <nav id="nav-menu" class="flex items-baseline space-x-6">
-                        <a href="#highlights" class="nav-link px-1 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Highlights</a>
-                        <a href="#journey" class="nav-link px-1 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Journey</a>
-                        <a href="#skills" class="nav-link px-1 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Skills</a>
-                        <a href="#education" class="nav-link px-1 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Education</a>
+                        <a href="#highlights"
+                            class="nav-link px-1 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Highlights</a>
+                        <a href="#journey"
+                            class="nav-link px-1 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Journey</a>
+                        <a href="#skills"
+                            class="nav-link px-1 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Skills</a>
+                        <a href="#education"
+                            class="nav-link px-1 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Education</a>
                     </nav>
-                    
+
                     <!-- Dark Mode Toggle Button -->
-                    <button id="theme-toggle" class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full focus:outline-none transition-colors" aria-label="Toggle Dark Mode">
+                    <button id="theme-toggle"
+                        class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full focus:outline-none transition-colors"
+                        aria-label="Toggle Dark Mode">
                         <!-- Sun Icon (Hidden in Dark) -->
-                        <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                        <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path
+                                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                                fill-rule="evenodd" clip-rule="evenodd"></path>
+                        </svg>
                         <!-- Moon Icon (Hidden in Light) -->
-                        <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                        <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
                     </button>
                 </div>
+
+                <!-- Mobile Menu Button & Theme Toggle -->
+                <div class="flex items-center gap-4 md:hidden">
+                    <!-- Mobile Theme Toggle -->
+                    <button id="theme-toggle-mobile"
+                        class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full focus:outline-none transition-colors"
+                        aria-label="Toggle Dark Mode">
+                        <svg id="theme-toggle-light-icon-mobile" class="w-5 h-5 hidden" fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path
+                                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                                fill-rule="evenodd" clip-rule="evenodd"></path>
+                        </svg>
+                        <svg id="theme-toggle-dark-icon-mobile" class="w-5 h-5 hidden" fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                    </button>
+
+                    <button id="mobile-menu-btn"
+                        class="text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 focus:outline-none p-2"
+                        aria-label="Open Menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#highlights"
+                    class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Highlights</a>
+                <a href="#journey"
+                    class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Journey</a>
+                <a href="#skills"
+                    class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Skills</a>
+                <a href="#education"
+                    class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Education</a>
             </div>
         </div>
     </header>
 
     <main>
         <!-- Hero Section -->
-        <section id="hero" class="reveal active relative py-20 md:py-32 bg-white dark:bg-slate-900 overflow-hidden transition-colors duration-300">
-            <!-- Background Pattern -->
-            <div class="absolute inset-0 hero-pattern z-0 pointer-events-none"></div>
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white dark:to-slate-900 z-0 pointer-events-none"></div>
+        <section id="hero" class="relative pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+            <div class="hero-pattern absolute inset-0 z-0 pointer-events-none"></div>
+            <div
+                class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white dark:to-slate-900 z-0 pointer-events-none">
+            </div>
 
             <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
+                <h1
+                    class="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
                     Technical Product Manager
                 </h1>
                 <p class="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-slate-600 dark:text-slate-300 leading-relaxed">
-                    A results-oriented leader with a 10+ year track record of delivering impactful digital solutions by blending 3 years of dedicated product leadership with a 8 years of engineering foundation. Expert in bridging business goals and technical execution to drive revenue and enhance user experience.
+                    A results-oriented leader with a 10+ year track record of delivering impactful digital solutions by
+                    blending 3 years of dedicated product leadership with a 8 years of engineering foundation. Expert in
+                    bridging business goals and technical execution to drive revenue and enhance user experience.
                 </p>
                 <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="mailto:alenvadassery@gmail.com" class="inline-flex items-center justify-center px-8 py-3.5 border border-transparent text-base font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 transition shadow-lg hover:shadow-indigo-500/30">
+                    <a href="mailto:alenvadassery@gmail.com"
+                        class="inline-flex items-center justify-center px-8 py-3.5 border border-transparent text-base font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 transition shadow-lg hover:shadow-indigo-500/30">
                         Contact Me
                     </a>
-                    <a href="https://www.linkedin.com/in/alenvadassery/" target="_blank" class="inline-flex items-center justify-center px-8 py-3.5 border border-slate-300 dark:border-slate-600 text-base font-medium rounded-full text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 transition shadow-sm">
+                    <a href="https://www.linkedin.com/in/alenvadassery/" target="_blank"
+                        class="inline-flex items-center justify-center px-8 py-3.5 border border-slate-300 dark:border-slate-600 text-base font-medium rounded-full text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 transition shadow-sm">
                         LinkedIn Profile
                     </a>
                 </div>
@@ -246,33 +355,54 @@
         <section id="highlights" class="reveal py-16 sm:py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
-                    <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white sm:text-4xl">Career Highlights</h2>
-                    <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">Quantifiable impact delivered through strategic product leadership.</p>
+                    <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white sm:text-4xl">Career Highlights
+                    </h2>
+                    <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">Quantifiable impact delivered through
+                        strategic product leadership.</p>
                 </div>
                 <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    <div class="stat-card p-8 bg-white dark:bg-slate-800 rounded-2xl shadow-lg relative overflow-hidden group transition-colors duration-300">
-                        <div class="absolute top-0 right-0 w-24 h-24 bg-indigo-50 dark:bg-indigo-900/30 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
-                        <h3 class="text-5xl font-bold text-indigo-600 dark:text-indigo-400 relative z-10 flex items-center">
+                    <div
+                        class="stat-card p-8 bg-white dark:bg-slate-800 rounded-2xl shadow-lg relative overflow-hidden group transition-colors duration-300">
+                        <div
+                            class="absolute top-0 right-0 w-24 h-24 bg-indigo-50 dark:bg-indigo-900/30 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110">
+                        </div>
+                        <h3
+                            class="text-5xl font-bold text-indigo-600 dark:text-indigo-400 relative z-10 flex items-center">
                             $<span class="counter" data-target="10.4">0</span>M
                         </h3>
-                        <p class="mt-4 text-lg font-bold text-slate-800 dark:text-slate-200 relative z-10">Annual Revenue Secured</p>
-                        <p class="mt-2 text-slate-600 dark:text-slate-400 relative z-10">Led a critical platform integration that retained key business partners and their entire revenue stream.</p>
+                        <p class="mt-4 text-lg font-bold text-slate-800 dark:text-slate-200 relative z-10">Annual
+                            Revenue Secured</p>
+                        <p class="mt-2 text-slate-600 dark:text-slate-400 relative z-10">Led a critical platform
+                            integration that retained key business partners and their entire revenue stream.</p>
                     </div>
-                    <div class="stat-card p-8 bg-white dark:bg-slate-800 rounded-2xl shadow-lg relative overflow-hidden group transition-colors duration-300">
-                        <div class="absolute top-0 right-0 w-24 h-24 bg-indigo-50 dark:bg-indigo-900/30 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
-                        <h3 class="text-5xl font-bold text-indigo-600 dark:text-indigo-400 relative z-10 flex items-center">
+                    <div
+                        class="stat-card p-8 bg-white dark:bg-slate-800 rounded-2xl shadow-lg relative overflow-hidden group transition-colors duration-300">
+                        <div
+                            class="absolute top-0 right-0 w-24 h-24 bg-indigo-50 dark:bg-indigo-900/30 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110">
+                        </div>
+                        <h3
+                            class="text-5xl font-bold text-indigo-600 dark:text-indigo-400 relative z-10 flex items-center">
                             $<span class="counter" data-target="98">0</span>K+
                         </h3>
-                        <p class="mt-4 text-lg font-bold text-slate-800 dark:text-slate-200 relative z-10">Annualized Benefit</p>
-                        <p class="mt-2 text-slate-600 dark:text-slate-400 relative z-10">Enhanced an in-app tool, driving significant sales associate efficiency and reducing support overhead.</p>
+                        <p class="mt-4 text-lg font-bold text-slate-800 dark:text-slate-200 relative z-10">Annualized
+                            Benefit</p>
+                        <p class="mt-2 text-slate-600 dark:text-slate-400 relative z-10">Enhanced an in-app tool,
+                            driving significant sales associate efficiency and reducing support overhead.</p>
                     </div>
-                    <div class="stat-card p-8 bg-white dark:bg-slate-800 rounded-2xl shadow-lg relative overflow-hidden group transition-colors duration-300">
-                        <div class="absolute top-0 right-0 w-24 h-24 bg-indigo-50 dark:bg-indigo-900/30 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
-                        <h3 class="text-5xl font-bold text-indigo-600 dark:text-indigo-400 relative z-10 flex items-center">
+                    <div
+                        class="stat-card p-8 bg-white dark:bg-slate-800 rounded-2xl shadow-lg relative overflow-hidden group transition-colors duration-300">
+                        <div
+                            class="absolute top-0 right-0 w-24 h-24 bg-indigo-50 dark:bg-indigo-900/30 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110">
+                        </div>
+                        <h3
+                            class="text-5xl font-bold text-indigo-600 dark:text-indigo-400 relative z-10 flex items-center">
                             ><span class="counter" data-target="85">0</span>%
                         </h3>
-                        <p class="mt-4 text-lg font-bold text-slate-800 dark:text-slate-200 relative z-10">Code Quality & Coverage</p>
-                        <p class="mt-2 text-slate-600 dark:text-slate-400 relative z-10">Maintained high platform health and security standards through rigorous testing and compliance.</p>
+                        <p class="mt-4 text-lg font-bold text-slate-800 dark:text-slate-200 relative z-10">Code
+                            Quality
+                            & Coverage</p>
+                        <p class="mt-2 text-slate-600 dark:text-slate-400 relative z-10">Maintained high platform health
+                            and security standards through rigorous testing and compliance.</p>
                     </div>
                 </div>
             </div>
@@ -282,8 +412,10 @@
         <section id="journey" class="reveal py-16 sm:py-24 bg-white dark:bg-slate-900 transition-colors duration-300">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
-                    <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white sm:text-4xl">My Career Journey</h2>
-                    <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">From building the code to defining the vision. Click each role to see the details.</p>
+                    <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white sm:text-4xl">My Career Journey
+                    </h2>
+                    <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">From building the code to defining the
+                        vision. Click each role to see the details.</p>
                 </div>
                 <div id="timeline-container" class="mt-16 max-w-3xl mx-auto">
                 </div>
@@ -291,66 +423,100 @@
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="reveal py-16 sm:py-24 bg-slate-50/50 dark:bg-slate-800/30 transition-colors duration-300">
+        <section id="skills"
+            class="reveal py-16 sm:py-24 bg-slate-50/50 dark:bg-slate-800/30 transition-colors duration-300">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
-                    <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white sm:text-4xl">Skills & Proficiencies</h2>
-                    <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">A balanced blend of product strategy, technical depth, and agile leadership.</p>
+                    <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white sm:text-4xl">Skills &
+                        Proficiencies</h2>
+                    <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">A balanced blend of product strategy,
+                        technical depth, and agile leadership.</p>
                 </div>
                 <div class="mt-16 grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
                     <div class="chart-container order-2 lg:order-1">
                         <canvas id="skillsRadarChart"></canvas>
                     </div>
                     <div class="space-y-8 order-1 lg:order-2">
-                        <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition">
+                        <div
+                            class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition">
                             <h3 class="text-xl font-bold text-indigo-700 dark:text-indigo-400 flex items-center gap-2">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                                    </path>
+                                </svg>
                                 Product & Agile Toolkit
                             </h3>
                             <div class="mt-4 space-y-4">
                                 <div>
-                                    <span class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Methodologies</span>
+                                    <span
+                                        class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Methodologies</span>
                                     <div class="flex flex-wrap gap-2 mt-2">
-                                        <span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-full text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition">Agile</span>
-                                        <span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-full text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition">Scrum</span>
-                                        <span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-full text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition">Kanban</span>
+                                        <span
+                                            class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-full text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition">Agile</span>
+                                        <span
+                                            class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-full text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition">Scrum</span>
+                                        <span
+                                            class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-full text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition">Kanban</span>
                                     </div>
                                 </div>
                                 <div>
-                                    <span class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Tools</span>
+                                    <span
+                                        class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Tools</span>
                                     <div class="flex flex-wrap gap-2 mt-2">
-                                        <span class="px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium hover:bg-blue-100 dark:hover:bg-blue-900/50 transition">JIRA</span>
-                                        <span class="px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium hover:bg-blue-100 dark:hover:bg-blue-900/50 transition">VersionOne</span>
-                                        <span class="px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium hover:bg-blue-100 dark:hover:bg-blue-900/50 transition">Confluence</span>
+                                        <span
+                                            class="px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium hover:bg-blue-100 dark:hover:bg-blue-900/50 transition">JIRA</span>
+                                        <span
+                                            class="px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium hover:bg-blue-100 dark:hover:bg-blue-900/50 transition">VersionOne</span>
+                                        <span
+                                            class="px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium hover:bg-blue-100 dark:hover:bg-blue-900/50 transition">Confluence</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition">
-                             <h3 class="text-xl font-bold text-indigo-700 dark:text-indigo-400 flex items-center gap-2">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        <div
+                            class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition">
+                            <h3 class="text-xl font-bold text-indigo-700 dark:text-indigo-400 flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                                </svg>
                                 Technical Stack
                             </h3>
                             <div class="mt-4 space-y-4">
                                 <div>
-                                    <span class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Languages & Web</span>
+                                    <span
+                                        class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Languages
+                                        & Web</span>
                                     <div class="flex flex-wrap gap-2 mt-2">
-                                        <span class="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-medium hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition">C#</span>
-                                        <span class="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-medium hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition">Java</span>
-                                        <span class="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-medium hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition">SQL</span>
-                                        <span class="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-medium hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition">.NET</span>
-                                        <span class="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-medium hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition">React</span>
-                                        <span class="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-medium hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition">Angular</span>
+                                        <span
+                                            class="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-medium hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition">C#</span>
+                                        <span
+                                            class="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-medium hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition">Java</span>
+                                        <span
+                                            class="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-medium hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition">SQL</span>
+                                        <span
+                                            class="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-medium hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition">.NET</span>
+                                        <span
+                                            class="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-medium hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition">React</span>
+                                        <span
+                                            class="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-medium hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition">Angular</span>
                                     </div>
                                 </div>
                                 <div>
-                                    <span class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Infrastructure</span>
+                                    <span
+                                        class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Infrastructure</span>
                                     <div class="flex flex-wrap gap-2 mt-2">
-                                        <span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-full text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition">Micro-Frontend</span>
-                                        <span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-full text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition">Microservices</span>
-                                        <span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-full text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition">MS SQL</span>
-                                        <span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-full text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition">Elasticsearch</span>
+                                        <span
+                                            class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-full text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition">Micro-Frontend</span>
+                                        <span
+                                            class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-full text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition">Microservices</span>
+                                        <span
+                                            class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-full text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition">MS
+                                            SQL</span>
+                                        <span
+                                            class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-full text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition">Elasticsearch</span>
                                     </div>
                                 </div>
                             </div>
@@ -360,50 +526,70 @@
             </div>
         </section>
 
-        <!-- Education & Certifications are combined in the script but can have a section if needed -->
+        <!-- Education & Certifications -->
         <section id="education" class="reveal py-16 sm:py-24 bg-white dark:bg-slate-900 transition-colors duration-300">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
-                    <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white sm:text-4xl">Education & Certifications</h2>
-                    <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">Foundations of knowledge and commitment to continuous learning.</p>
+                    <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white sm:text-4xl">Education &
+                        Certifications</h2>
+                    <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">Foundations of knowledge and commitment
+                        to continuous learning.</p>
                 </div>
                 <div class="mt-12 grid gap-10 md:grid-cols-2">
-                    <div class="bg-slate-50 dark:bg-slate-850 p-8 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-indigo-100 dark:hover:border-indigo-700 transition duration-300">
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-700 pb-4 mb-4">Education</h3>
+                    <div
+                        class="bg-slate-50 dark:bg-slate-850 p-8 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-indigo-100 dark:hover:border-indigo-700 transition duration-300">
+                        <h3
+                            class="text-xl font-bold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-700 pb-4 mb-4">
+                            Education</h3>
                         <div class="space-y-6">
                             <div>
-                                <h4 class="text-lg font-bold text-indigo-700 dark:text-indigo-400">Master of Business Administration (MBA)</h4>
+                                <h4 class="text-lg font-bold text-indigo-700 dark:text-indigo-400">Master of Business
+                                    Administration (MBA)</h4>
                                 <p class="text-slate-600 dark:text-slate-400">Punjab Technical University, 2022</p>
                             </div>
                             <div>
-                                <h4 class="text-lg font-bold text-indigo-700 dark:text-indigo-400">Bachelor of Engineering (B.E.), ECE</h4>
+                                <h4 class="text-lg font-bold text-indigo-700 dark:text-indigo-400">Bachelor of
+                                    Engineering (B.E.), ECE</h4>
                                 <p class="text-slate-600 dark:text-slate-400">Punjab Technical University, 2013</p>
                             </div>
                         </div>
                     </div>
-                     <div class="bg-slate-50 dark:bg-slate-850 p-8 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-indigo-100 dark:hover:border-indigo-700 transition duration-300">
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-700 pb-4 mb-4">Certifications & Awards</h3>
+                    <div
+                        class="bg-slate-50 dark:bg-slate-850 p-8 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-indigo-100 dark:hover:border-indigo-700 transition duration-300">
+                        <h3
+                            class="text-xl font-bold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-700 pb-4 mb-4">
+                            Certifications & Awards</h3>
                         <div class="space-y-4">
                             <div class="flex items-start">
                                 <span class="flex-shrink-0 h-2 w-2 mt-2 rounded-full bg-indigo-500 mr-3"></span>
                                 <div>
-                                    <p class="font-semibold text-slate-800 dark:text-slate-200">Certified Scrum Product Owner (CSPO)</p>
+                                    <p class="font-semibold text-slate-800 dark:text-slate-200">Certified Scrum Product
+                                        Owner (CSPO)</p>
                                     <p class="text-sm text-slate-500 dark:text-slate-400">Scrum Alliance</p>
                                 </div>
                             </div>
                             <div class="flex items-start">
                                 <span class="flex-shrink-0 h-2 w-2 mt-2 rounded-full bg-indigo-500 mr-3"></span>
                                 <div>
-                                    <p class="font-semibold text-slate-800 dark:text-slate-200">SAFe® Product Owner/Product Manager (POPM)</p>
+                                    <p class="font-semibold text-slate-800 dark:text-slate-200">SAFe® Product
+                                        Owner/Product Manager (POPM)</p>
                                     <p class="text-sm text-slate-500 dark:text-slate-400">Scaled Agile, Inc.</p>
                                 </div>
                             </div>
-                             <div class="pt-4 mt-2 border-t border-slate-200 dark:border-slate-700">
-                                <p class="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-2">Awards</p>
+                            <div class="pt-4 mt-2 border-t border-slate-200 dark:border-slate-700">
+                                <p
+                                    class="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-2">
+                                    Awards</p>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="px-2 py-1 bg-yellow-50 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-400 border border-yellow-100 dark:border-yellow-700 rounded text-xs font-medium">Spirit of Service</span>
-                                    <span class="px-2 py-1 bg-yellow-50 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-400 border border-yellow-100 dark:border-yellow-700 rounded text-xs font-medium">Star of the Month</span>
-                                    <span class="px-2 py-1 bg-yellow-50 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-400 border border-yellow-100 dark:border-yellow-700 rounded text-xs font-medium">CEO Award</span>
+                                    <span
+                                        class="px-2 py-1 bg-yellow-50 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-400 border border-yellow-100 dark:border-yellow-700 rounded text-xs font-medium">Spirit
+                                        of Service</span>
+                                    <span
+                                        class="px-2 py-1 bg-yellow-50 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-400 border border-yellow-100 dark:border-yellow-700 rounded text-xs font-medium">Star
+                                        of the Month</span>
+                                    <span
+                                        class="px-2 py-1 bg-yellow-50 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-400 border border-yellow-100 dark:border-yellow-700 rounded text-xs font-medium">CEO
+                                        Award</span>
                                 </div>
                             </div>
                         </div>
@@ -413,62 +599,92 @@
         </section>
     </main>
 
-    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">
+    <footer
+        class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">
         <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center text-sm text-slate-500 dark:text-slate-400">
             <p>&copy; 2025 Alen Vadassery. All Rights Reserved.</p>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="scrollTopBtn" class="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-indigo-600 text-white shadow-lg hover:bg-indigo-700 focus:outline-none" aria-label="Scroll to top">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+    <button id="scrollTopBtn"
+        class="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-indigo-600 text-white shadow-lg hover:bg-indigo-700 focus:outline-none"
+        aria-label="Scroll to top">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
     </button>
 
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-
         // --- Dark Mode Logic ---
         const toggleBtn = document.getElementById('theme-toggle');
+        const toggleBtnMobile = document.getElementById('theme-toggle-mobile');
         const darkIcon = document.getElementById('theme-toggle-dark-icon');
         const lightIcon = document.getElementById('theme-toggle-light-icon');
+        const darkIconMobile = document.getElementById('theme-toggle-dark-icon-mobile');
+        const lightIconMobile = document.getElementById('theme-toggle-light-icon-mobile');
         const html = document.documentElement;
 
-        // Check local storage or system preference
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            html.classList.add('dark');
-            lightIcon.classList.remove('hidden');
-        } else {
-            html.classList.remove('dark');
-            darkIcon.classList.remove('hidden');
+        // Function to update icons based on current theme
+        function updateIcons(isDark) {
+            if (isDark) {
+                lightIcon.classList.remove('hidden');
+                darkIcon.classList.add('hidden');
+                lightIconMobile.classList.remove('hidden');
+                darkIconMobile.classList.add('hidden');
+            } else {
+                lightIcon.classList.add('hidden');
+                darkIcon.classList.remove('hidden');
+                lightIconMobile.classList.add('hidden');
+                darkIconMobile.classList.remove('hidden');
+            }
         }
 
-        toggleBtn.addEventListener('click', function() {
-            darkIcon.classList.toggle('hidden');
-            lightIcon.classList.toggle('hidden');
+        // Check local storage or system preference on load
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+            updateIcons(true);
+        } else {
+            html.classList.remove('dark');
+            updateIcons(false);
+        }
 
-            if (localStorage.getItem('color-theme')) {
-                if (localStorage.getItem('color-theme') === 'light') {
-                    html.classList.add('dark');
-                    localStorage.setItem('color-theme', 'dark');
-                } else {
-                    html.classList.remove('dark');
-                    localStorage.setItem('color-theme', 'light');
-                }
+        // Toggle Theme Function
+        function toggleTheme() {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+                updateIcons(false);
             } else {
-                if (html.classList.contains('dark')) {
-                    html.classList.remove('dark');
-                    localStorage.setItem('color-theme', 'light');
-                } else {
-                    html.classList.add('dark');
-                    localStorage.setItem('color-theme', 'dark');
-                }
+                html.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+                updateIcons(true);
             }
             updateChartTheme(); // Update chart on toggle
+        }
+
+        toggleBtn.addEventListener('click', toggleTheme);
+        toggleBtnMobile.addEventListener('click', toggleTheme);
+
+        // --- Mobile Menu Logic ---
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
 
+        // Close mobile menu when a link is clicked
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
 
         // --- Scroll Reveal Logic ---
         const revealElements = document.querySelectorAll('.reveal');
+
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -490,17 +706,17 @@
                     const target = parseFloat(counter.getAttribute('data-target'));
                     const duration = 2000;
                     const startTime = performance.now();
-                    
+
                     const updateCounter = (currentTime) => {
                         const elapsed = currentTime - startTime;
                         const progress = Math.min(elapsed / duration, 1);
                         const easeOut = 1 - Math.pow(1 - progress, 3);
                         const currentVal = target * easeOut;
-                        
+
                         if (target % 1 !== 0) {
-                             counter.innerText = currentVal.toFixed(1);
+                            counter.innerText = currentVal.toFixed(1);
                         } else {
-                             counter.innerText = Math.round(currentVal);
+                            counter.innerText = Math.round(currentVal);
                         }
 
                         if (progress < 1) {
@@ -509,13 +725,11 @@
                             counter.innerText = target;
                         }
                     };
-                    
                     requestAnimationFrame(updateCounter);
                     counterObserver.unobserve(counter);
                 }
             });
         }, { threshold: 0.5 });
-
         counters.forEach(counter => counterObserver.observe(counter));
 
 
@@ -571,8 +785,9 @@
                 ]
             }
         ];
-        
+
         const timelineContainer = document.getElementById('timeline-container');
+
         journeyData.forEach((job, index) => {
             const item = document.createElement('div');
             item.className = 'timeline-item relative pl-8 sm:pl-12 py-4 border-l-2 border-slate-200 dark:border-slate-700';
@@ -586,15 +801,15 @@
                     <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">${job.duration}</p>
                 </div>
                 <div class="timeline-content mt-4 pr-4">
-                     <div class="prose prose-sm max-w-none text-slate-600 dark:text-slate-300 space-y-3">
+                    <div class="prose prose-sm max-w-none text-slate-600 dark:text-slate-300 space-y-3">
                         ${job.details.map(d => `<p>${d}</p>`).join('')}
                     </div>
                 </div>
             `;
             timelineContainer.appendChild(item);
-            
+
             item.addEventListener('click', (e) => {
-                if(e.target.closest('[data-action="toggle"]') || e.target.closest('.timeline-dot')) {
+                if (e.target.closest('[data-action="toggle"]') || e.target.closest('.timeline-dot')) {
                     document.querySelectorAll('.timeline-item').forEach(el => {
                         if (el !== item) el.classList.remove('active');
                     });
@@ -647,10 +862,17 @@
                     maintainAspectRatio: false,
                     scales: {
                         r: {
-                            angleLines: { color: gridColor },
-                            grid: { color: gridColor },
+                            angleLines: {
+                                color: gridColor
+                            },
+                            grid: {
+                                color: gridColor
+                            },
                             pointLabels: {
-                                font: { size: 12, weight: 'bold' },
+                                font: {
+                                    size: 12,
+                                    weight: 'bold'
+                                },
                                 color: pointLabelColor
                             },
                             ticks: {
@@ -663,7 +885,9 @@
                         }
                     },
                     plugins: {
-                        legend: { display: false }
+                        legend: {
+                            display: false
+                        }
                     }
                 }
             });
@@ -675,7 +899,7 @@
         const navMenu = document.getElementById('nav-menu');
         const navLinks = navMenu.querySelectorAll('a');
         const sections = document.querySelectorAll('main section');
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -686,9 +910,9 @@
                 }
             });
         }, { rootMargin: '-50% 0px -50% 0px' });
-        
+
         sections.forEach(section => observer.observe(section));
-    });
     </script>
 </body>
+
 </html>
