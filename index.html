@@ -167,7 +167,10 @@
             header,
             #scrollTopBtn,
             .hero-pattern,
-            .no-print {
+            .no-print,
+            #theme-toggle,
+            #theme-toggle-mobile,
+            #mobile-menu-btn {
                 display: none !important;
             }
 
@@ -192,7 +195,10 @@
 
             .stat-card,
             .bg-white,
-            .bg-slate-50 {
+            .bg-slate-50,
+            .bg-slate-100,
+            .bg-indigo-50,
+            .bg-blue-50 {
                 box-shadow: none !important;
                 border: 1px solid #ccc !important;
                 margin-bottom: 1rem;
@@ -207,25 +213,71 @@
             h4,
             p,
             span,
-            strong {
+            strong,
+            li {
                 color: black !important;
                 -webkit-text-fill-color: black !important;
                 /* Overrides gradient text */
             }
 
+            /* Link Styling */
             a {
                 text-decoration: none !important;
                 color: black !important;
+                font-weight: bold !important;
             }
 
             a[href]:after {
                 content: " (" attr(href) ")";
                 font-size: 0.8em;
+                font-weight: normal;
             }
 
-            /* Hide chart in print as it might not render perfectly without JS wait */
+            /* Reset Button Styles */
+            a[class*="bg-"],
+            a[class*="text-white"],
+            button {
+                background: none !important;
+                border: none !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                color: black !important;
+            }
+
+            /* Timeline: Always Expanded */
+            .timeline-item .timeline-content {
+                max-height: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+                display: block !important;
+                margin-top: 0.5rem !important;
+            }
+
+            .timeline-dot {
+                border-color: #000 !important;
+                background-color: #fff !important;
+            }
+
+            /* Hide chart in print */
             .chart-container {
-                display: none;
+                display: none !important;
+            }
+
+            /* Skills Section Adjustments */
+            #skills .grid {
+                display: block !important;
+            }
+
+            /* Ensure text wraps nicely */
+            p,
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                orphans: 3;
+                widows: 3;
             }
         }
     </style>
@@ -533,7 +585,8 @@
                     <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white sm:text-4xl">Education &
                         Certifications</h2>
                     <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">Foundations of knowledge and commitment
-                        to continuous learning.</p>
+                        to
+                        continuous learning.</p>
                 </div>
                 <div class="mt-12 grid gap-10 md:grid-cols-2">
                     <div
@@ -611,7 +664,8 @@
         class="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-indigo-600 text-white shadow-lg hover:bg-indigo-700 focus:outline-none"
         aria-label="Scroll to top">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18">
+            </path>
         </svg>
     </button>
 
@@ -692,13 +746,16 @@
                     revealObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+        }, {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        });
 
         revealElements.forEach(el => revealObserver.observe(el));
 
-
         // --- Animated Counters Logic ---
         const counters = document.querySelectorAll('.counter');
+
         const counterObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -725,16 +782,20 @@
                             counter.innerText = target;
                         }
                     };
+
                     requestAnimationFrame(updateCounter);
                     counterObserver.unobserve(counter);
                 }
             });
-        }, { threshold: 0.5 });
-        counters.forEach(counter => counterObserver.observe(counter));
+        }, {
+            threshold: 0.5
+        });
 
+        counters.forEach(counter => counterObserver.observe(counter));
 
         // --- Back to Top Button Logic ---
         const scrollTopBtn = document.getElementById('scrollTopBtn');
+
         window.addEventListener('scroll', () => {
             if (window.scrollY > 300) {
                 scrollTopBtn.classList.add('show');
@@ -744,46 +805,47 @@
         });
 
         scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
 
-
         // --- Timeline Data Injection ---
-        const journeyData = [
-            {
-                role: "Digital Product Owner/Manager",
-                company: "Allstate Solutions Pvt. Ltd.",
-                duration: "2021 – Present",
-                active: true,
-                details: [
-                    "Owned the complete product lifecycle for the Allstate Advisor Pro (AAP) platform, steering strategic initiatives across customer experience, profitability, and platform modernization.",
-                    "<strong>Customer Experience & Efficiency:</strong> Enhanced the Whatfix in-app guidance tool, leading to an estimated annualized benefit of <strong>$98,932</strong>. Resolved open accessibility (A11Y) findings, ensuring WCAG compliance.",
-                    "<strong>Growth & Profitability:</strong> Spearheaded the critical integration of Answer Financial (AF), securing <strong>$10.4 million in annual revenue</strong> and preventing a potential loss of $15.1 million.",
-                    "<strong>Product & Technical Enablement:</strong> Led the enablement of Allstate Sales Center (ASC) products, supporting key customer life events. Improved system observability, contributing to a faster Mean Time To Resolution (MTTR).",
-                    "<strong>Agile & Backlog Management:</strong> Defined the product vision, translated business goals into actionable user stories, and managed the team backlog to ensure alignment and continuous improvement.",
-                    "<strong>Compliance & Platform Health:</strong> Maintained over <strong>85% test case coverage</strong>, ensured zero pending vulnerabilities, and led the migration from CMS to RDM REST APIs."
-                ]
-            },
-            {
-                role: "Senior Lead Consultant",
-                company: "Allstate Solutions Pvt. Ltd.",
-                duration: "2018 – 2021",
-                details: [
-                    "Led and provided technical expertise for multiple high-impact projects, bridging the gap between business requirements and technical execution.",
-                    "<strong>Project: ExtraHands Application:</strong> Led the complete technical migration of the application from a vendor to the Allstate internal environment. Acted as the team's Scrum Master and de-facto Product Owner, managing the backlog and ensuring on-time project delivery.",
-                    "<strong>Project: Transformative Growth:</strong> Developed new insurance product offerings using modern technology stacks (React, Angular, Micro-Frontend) to enhance customer experience. Implemented complex business logic and delivered fully tested source code."
-                ]
-            },
-            {
-                role: "Software Engineer",
-                company: "Emids Technologies Pvt. Ltd.",
-                duration: "2014 – 2018",
-                details: [
-                    "Developed and maintained enterprise software solutions for major clients in the healthcare domain, contributing to all phases of the SDLC.",
-                    "<strong>Project: Greenway Health:</strong> Designed and implemented back-end services and engineered a robust role-based access control system for a complex healthcare transaction platform.",
-                    "<strong>Project: Patient Engagement Portal:</strong> Contributed to a patient-facing portal for scheduling appointments and managing health records. Worked on performance/load testing and requirement grooming.",
-                ]
-            }
+        const journeyData = [{
+            role: "Digital Product Owner/Manager",
+            company: "Allstate Solutions Pvt. Ltd.",
+            duration: "2021 – Present",
+            active: true,
+            details: [
+                "Owned the complete product lifecycle for the Allstate Advisor Pro (AAP) platform, steering strategic initiatives across customer experience, profitability, and platform modernization.",
+                "<strong>Customer Experience & Efficiency:</strong> Enhanced the Whatfix in-app guidance tool, leading to an estimated annualized benefit of <strong>$98,932</strong>. Resolved open accessibility (A11Y) findings, ensuring WCAG compliance.",
+                "<strong>Growth & Profitability:</strong> Spearheaded the critical integration of Answer Financial (AF), securing <strong>$10.4 million in annual revenue</strong> and preventing a potential loss of $15.1 million.",
+                "<strong>Product & Technical Enablement:</strong> Led the enablement of Allstate Sales Center (ASC) products, supporting key customer life events. Improved system observability, contributing to a faster Mean Time To Resolution (MTTR).",
+                "<strong>Agile & Backlog Management:</strong> Defined the product vision, translated business goals into actionable user stories, and managed the team backlog to ensure alignment and continuous improvement.",
+                "<strong>Compliance & Platform Health:</strong> Maintained over <strong>85% test case coverage</strong>, ensured zero pending vulnerabilities, and led the migration from CMS to RDM REST APIs."
+            ]
+        },
+        {
+            role: "Senior Lead Consultant",
+            company: "Allstate Solutions Pvt. Ltd.",
+            duration: "2018 – 2021",
+            details: [
+                "Led and provided technical expertise for multiple high-impact projects, bridging the gap between business requirements and technical execution.",
+                "<strong>Project: ExtraHands Application:</strong> Led the complete technical migration of the application from a vendor to the Allstate internal environment. Acted as the team's Scrum Master and de-facto Product Owner, managing the backlog and ensuring on-time project delivery.",
+                "<strong>Project: Transformative Growth:</strong> Developed new insurance product offerings using modern technology stacks (React, Angular, Micro-Frontend) to enhance customer experience. Implemented complex business logic and delivered fully tested source code."
+            ]
+        },
+        {
+            role: "Software Engineer",
+            company: "Emids Technologies Pvt. Ltd.",
+            duration: "2014 – 2018",
+            details: [
+                "Developed and maintained enterprise software solutions for major clients in the healthcare domain, contributing to all phases of the SDLC.",
+                "<strong>Project: Greenway Health:</strong> Designed and implemented back-end services and engineered a robust role-based access control system for a complex healthcare transaction platform.",
+                "<strong>Project: Patient Engagement Portal:</strong> Contributed to a patient-facing portal for scheduling appointments and managing health records. Worked on performance/load testing and requirement grooming."
+            ]
+        }
         ];
 
         const timelineContainer = document.getElementById('timeline-container');
@@ -909,7 +971,9 @@
                     });
                 }
             });
-        }, { rootMargin: '-50% 0px -50% 0px' });
+        }, {
+            rootMargin: '-50% 0px -50% 0px'
+        });
 
         sections.forEach(section => observer.observe(section));
     </script>
