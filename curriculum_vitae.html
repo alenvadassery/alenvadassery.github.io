@@ -76,7 +76,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
             position: relative;
         }
 
@@ -414,38 +413,38 @@
     <div class="page" id="page1">
         <!-- Sidebar Page 1 -->
         <aside class="sidebar">
-            <div class="profile-img-container" onclick="document.getElementById('imgUpload').click()">
+            <!-- Removed onclick handler for image upload -->
+            <div class="profile-img-container">
                 <img id="profileImage" src="Gemini_Generated_Image_52qcu252qcu252qc.jpg" alt="Profile"
                     onerror="this.style.display='none'; document.getElementById('profilePlaceholder').style.display='flex';">
                 <div id="profilePlaceholder" class="profile-placeholder" style="display:none;">
                     <i class="fas fa-camera"></i>
                 </div>
             </div>
-            <input type="file" id="imgUpload" accept="image/*" style="display: none" onchange="loadPhoto(event)">
 
             <div class="sidebar-section">
                 <h3>Contact</h3>
                 <!-- Phone number removed -->
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
-                    <a href="mailto:alenvadassery@gmail.com" contenteditable="true">alenvadassery@gmail.com</a>
+                    <a href="mailto:alenvadassery@gmail.com">alenvadassery@gmail.com</a>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-globe"></i>
-                    <a href="https://alenvadassery.com/" contenteditable="true">alenvadassery.com</a>
+                    <a href="https://alenvadassery.com/">alenvadassery.com</a>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span contenteditable="true">Bengaluru, KA</span>
+                    <span>Bengaluru, KA</span>
                 </div>
             </div>
 
             <div class="sidebar-section">
                 <h3>Certifications</h3>
-                <div class="cert-item" contenteditable="true">
+                <div class="cert-item">
                     <strong>CSPO</strong><br><small>Scrum Alliance</small>
                 </div>
-                <div class="cert-item" contenteditable="true">
+                <div class="cert-item">
                     <strong>SAFe® POPM</strong><br><small>Scaled Agile, Inc.</small>
                 </div>
             </div>
@@ -454,7 +453,7 @@
                 <h3>Skills</h3>
 
                 <div class="skill-category">Product & Agile</div>
-                <div class="skill-list" contenteditable="true">
+                <div class="skill-list">
                     <span class="skill-item">Product Strategy</span>
                     <span class="skill-item">Roadmapping</span>
                     <span class="skill-item">Agile (Scrum / Kanban)</span>
@@ -469,13 +468,13 @@
         <!-- Main Content Page 1 -->
         <main class="main-content">
             <header class="header-name">
-                <h1 contenteditable="true">Alen Vadassery</h1>
-                <div class="job-title" contenteditable="true">Technical Product Manager</div>
+                <h1>Alen Vadassery</h1>
+                <div class="job-title">Technical Product Manager</div>
             </header>
 
             <section>
                 <div class="section-title">Summary</div>
-                <p class="summary-text" contenteditable="true">
+                <p class="summary-text">
                     A results-oriented leader with a 10+ year track record of delivering impactful digital solutions by
                     blending 3 years of dedicated product leadership with an 8-year engineering foundation. Expert in
                     bridging business goals and technical execution to drive revenue and enhance user experience.
@@ -491,12 +490,12 @@
                     <div class="job-entry">
                         <div class="job-head">
                             <div>
-                                <div class="job-role" contenteditable="true">Digital Product Manager</div>
-                                <div class="job-company" contenteditable="true">Allstate India</div>
+                                <div class="job-role">Digital Product Manager</div>
+                                <div class="job-company">Allstate India</div>
                             </div>
-                            <div class="job-date" contenteditable="true">2022 – Present</div>
+                            <div class="job-date">2022 – Present</div>
                         </div>
-                        <ul class="job-bullets" contenteditable="true">
+                        <ul class="job-bullets">
                             <li><strong>Customer Experience:</strong> Enhanced Whatfix guidance, driving ~$98k in
                                 annualized benefits via sales associate efficiency.</li>
                             <li><strong>Revenue Growth:</strong> Spearheaded Answer Financial integration, securing
@@ -514,14 +513,14 @@
                     <div class="job-entry">
                         <div class="job-head">
                             <div>
-                                <div class="job-role" contenteditable="true">Senior Lead Consultant</div>
-                                <div class="job-company" contenteditable="true">Allstate India</div>
+                                <div class="job-role">Senior Lead Consultant</div>
+                                <div class="job-company">Allstate India</div>
                             </div>
-                            <div class="job-date" contenteditable="true">2018 – 2022</div>
+                            <div class="job-date">2018 – 2022</div>
                         </div>
-                        <span class="project-tag" contenteditable="true">Projects: ExtraHands Application,
+                        <span class="project-tag">Projects: ExtraHands Application,
                             Transformative Growth</span>
-                        <ul class="job-bullets" contenteditable="true">
+                        <ul class="job-bullets">
                             <li>Led complete technical migration of "ExtraHands" application from vendor to internal
                                 environment.</li>
                             <li>Acted as Scrum Master & Proxy PO, managing backlog and ensuring on-time delivery.</li>
@@ -543,7 +542,7 @@
             <div class="sidebar-section">
                 <h3>Technical Skills</h3>
                 <div class="skill-category" style="margin-top:0;">Languages & Frameworks</div>
-                <div class="skill-list" contenteditable="true">
+                <div class="skill-list">
                     <span class="skill-item">C# / .NET</span>
                     <span class="skill-item">Java</span>
                     <span class="skill-item">React</span>
@@ -558,14 +557,14 @@
             <div class="sidebar-section">
                 <h3>Education</h3>
                 <div class="edu-item">
-                    <span class="edu-degree" contenteditable="true">Master of Business Administration (MBA)</span>
-                    <span class="edu-school" contenteditable="true">Punjab Technical University</span>
-                    <span class="edu-year" contenteditable="true">2022</span>
+                    <span class="edu-degree">Master of Business Administration (MBA)</span>
+                    <span class="edu-school">Punjab Technical University</span>
+                    <span class="edu-year">2022</span>
                 </div>
                 <div class="edu-item">
-                    <span class="edu-degree" contenteditable="true">B.E. Electronics & Comm.</span>
-                    <span class="edu-school" contenteditable="true">Punjab Technical University</span>
-                    <span class="edu-year" contenteditable="true">2013</span>
+                    <span class="edu-degree">B.E. Electronics & Comm.</span>
+                    <span class="edu-school">Punjab Technical University</span>
+                    <span class="edu-year">2013</span>
                 </div>
             </div>
         </aside>
@@ -579,14 +578,14 @@
                     <div class="job-entry">
                         <div class="job-head">
                             <div>
-                                <div class="job-role" contenteditable="true">Software Engineer</div>
-                                <div class="job-company" contenteditable="true">Emids Technologies Pvt. Ltd.</div>
+                                <div class="job-role">Software Engineer</div>
+                                <div class="job-company">Emids Technologies Pvt. Ltd.</div>
                             </div>
-                            <div class="job-date" contenteditable="true">2014 – 2018</div>
+                            <div class="job-date">2014 – 2018</div>
                         </div>
-                        <span class="project-tag" contenteditable="true">Projects: Greenway Health, Patient Engagement
+                        <span class="project-tag">Projects: Greenway Health, Patient Engagement
                             Portal</span>
-                        <ul class="job-bullets" contenteditable="true">
+                        <ul class="job-bullets">
                             <li>Designed and implemented back-end services for complex healthcare transaction platforms.
                             </li>
                             <li>Engineered robust role-based access control (RBAC) systems for security.</li>
@@ -600,7 +599,7 @@
 
             <section>
                 <div class="section-title">Honors & Awards</div>
-                <ul class="job-bullets" contenteditable="true">
+                <ul class="job-bullets">
                     <li>Spirit of Service (Allstate)</li>
                     <li>Star of the Month (Allstate)</li>
                     <li>CEO Award (Emids)</li>
@@ -608,22 +607,6 @@
             </section>
         </main>
     </div>
-
-    <script>
-        function loadPhoto(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    const img = document.getElementById('profileImage');
-                    img.src = e.target.result;
-                    img.style.display = 'block';
-                    document.getElementById('profilePlaceholder').style.display = 'none';
-                }
-                reader.readAsDataURL(file);
-            }
-        }
-    </script>
 </body>
 
 </html>
