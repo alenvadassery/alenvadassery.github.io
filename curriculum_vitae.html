@@ -358,6 +358,10 @@
                 padding: 0;
             }
 
+            .print-btn {
+                display: none !important;
+            }
+
             .page {
                 box-shadow: none;
                 margin: 0;
@@ -408,18 +412,17 @@
 </head>
 
 <body>
+    <!-- Print Button -->
+    <button class="print-btn" onclick="window.print()" style="position: fixed; bottom: 30px; right: 30px; background: #0284c7; color: white; border: none; padding: 12px 24px; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.95rem; cursor: pointer; box-shadow: 0 10px 25px rgba(2, 132, 199, 0.4); z-index: 1000; display: flex; align-items: center; gap: 8px; transition: transform 0.2s, background 0.2s;">
+        <i class="fas fa-download"></i> Download PDF
+    </button>
 
     <!-- PAGE 1 -->
     <div class="page" id="page1">
         <!-- Sidebar Page 1 -->
         <aside class="sidebar">
-            <!-- Removed onclick handler for image upload -->
-            <div class="profile-img-container">
-                <img id="profileImage" src="Gemini_Generated_Image_52qcu252qcu252qc.jpg" alt="Profile"
-                    onerror="this.style.display='none'; document.getElementById('profilePlaceholder').style.display='flex';">
-                <div id="profilePlaceholder" class="profile-placeholder" style="display:none;">
-                    <i class="fas fa-camera"></i>
-                </div>
+            <div class="profile-img-container" style="background: linear-gradient(135deg, #0284c7, #1e293b);">
+                <span style="font-size: 3.5rem; font-family: 'Montserrat', sans-serif; font-weight: 700; color: white; letter-spacing: -1px;">AV</span>
             </div>
 
             <div class="sidebar-section">

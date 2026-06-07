@@ -11,7 +11,29 @@
         content="Results-oriented leader blending product leadership with strong engineering foundations. View my interactive portfolio.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://alenvadassery.com">
-    <meta property="og:image" content="https://alenvadassery.com/og-image.jpg">
+    <meta property="og:image" content="https://alenvadassery.com/og-image.png">
+
+    <!-- SEO & Favicon -->
+    <meta name="description" content="Results-oriented Technical Product Manager blending product leadership with strong engineering foundations. View Alen Vadassery's interactive portfolio.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Alen Vadassery",
+      "jobTitle": "Technical Product Manager",
+      "url": "https://alenvadassery.com",
+      "sameAs": [
+        "https://linkedin.com/in/alenvadassery"
+      ],
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Punjab Technical University"
+      }
+    }
+    </script>
 
     <title>Alen Vadassery | Technical Product Manager</title>
 
@@ -22,9 +44,23 @@
             darkMode: 'class',
             theme: {
                 extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
                     colors: {
                         slate: {
                             850: '#151e2e', // Custom dark shade
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            900: '#0c4a6e',
                         }
                     }
                 }
@@ -34,17 +70,39 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        xintegrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-
     <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-snap-type: y proximity;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        .dark ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .dark ::-webkit-scrollbar-thumb { background: #334155; }
+        ::-webkit-scrollbar-thumb:hover { background: #0284c7; }
+        .dark ::-webkit-scrollbar-thumb:hover { background: #38bdf8; }
+
         body {
             font-family: 'Inter', sans-serif;
+        }
+
+        section {
+            scroll-snap-align: start;
+            scroll-margin-top: 4rem; /* Offset for sticky header */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
         }
 
         .nav-link {
@@ -68,19 +126,24 @@
         }
 
         .stat-card {
-            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s ease;
             border: 1px solid transparent;
         }
 
         .stat-card:hover {
-            transform: translateY(-5px);
-            /* Lighter shadow for dark mode visibility */
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 30px -5px rgb(0 0 0 / 0.15), 0 10px 15px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .dark .stat-card {
+            background: linear-gradient(145deg, rgba(30,41,59,0.4) 0%, rgba(15,23,42,0.8) 100%);
+            border: 1px solid rgba(255,255,255,0.05);
+            backdrop-filter: blur(12px);
         }
 
         .dark .stat-card:hover {
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.5);
-            border-color: #334155;
+            box-shadow: 0 25px 30px -5px rgb(0 0 0 / 0.6), 0 0 20px 0px rgba(56, 189, 248, 0.15);
+            border-color: rgba(56, 189, 248, 0.3);
         }
 
         .timeline-item .timeline-content {
@@ -296,7 +359,7 @@
 
     <!-- Header & Navigation -->
     <header id="header"
-        class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800 shadow-sm transition-colors duration-300">
+        class="bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl sticky top-0 z-50 border-b border-white/20 dark:border-slate-800 shadow-[0_4px_30px_rgba(0,0,0,0.05)] dark:shadow-[0_4px_30px_rgba(0,0,0,0.3)] transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex-shrink-0">
@@ -378,12 +441,14 @@
                     class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Education</a>
             </div>
         </div>
+        <!-- Scroll Progress Bar -->
+        <div id="scroll-progress" class="h-1 bg-gradient-to-r from-sky-400 to-indigo-500 w-0 absolute bottom-0 left-0 transition-all duration-150 z-50"></div>
     </header>
 
     <main>
         <!-- Hero Section -->
         <section id="hero" class="relative pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">
-            <div class="hero-pattern absolute inset-0 z-0 pointer-events-none"></div>
+            <div id="hero-bg" class="hero-pattern absolute inset-[-5%] z-0 pointer-events-none transition-transform duration-300 ease-out"></div>
             <div
                 class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white dark:to-slate-900 z-0 pointer-events-none">
             </div>
@@ -922,7 +987,7 @@
 
             item.innerHTML = `
                 <div class="timeline-dot absolute top-5 -left-[9px] w-4 h-4 bg-slate-300 dark:bg-slate-600 rounded-full border-4 border-white dark:border-slate-900 cursor-pointer hover:scale-110 transition-transform"></div>
-                <div class="cursor-pointer group" data-action="toggle">
+                <div class="cursor-pointer group" data-action="toggle" role="button" tabindex="0" aria-expanded="${job.active ? 'true' : 'false'}" aria-label="Toggle details for ${job.role}">
                     <h3 class="text-xl font-bold text-slate-800 dark:text-slate-100 group-hover:text-sky-700 dark:group-hover:text-sky-400 transition-colors">${job.role}</h3>
                     <p class="text-sky-600 dark:text-sky-400 font-semibold">${job.company}</p>
                     <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">${job.duration}</p>
@@ -935,12 +1000,26 @@
             `;
             timelineContainer.appendChild(item);
 
-            item.addEventListener('click', (e) => {
+            const toggleContent = (e) => {
                 if (e.target.closest('[data-action="toggle"]') || e.target.closest('.timeline-dot')) {
                     document.querySelectorAll('.timeline-item').forEach(el => {
-                        if (el !== item) el.classList.remove('active');
+                        if (el !== item) {
+                            el.classList.remove('active');
+                            const btn = el.querySelector('[data-action="toggle"]');
+                            if (btn) btn.setAttribute('aria-expanded', 'false');
+                        }
                     });
-                    item.classList.toggle('active');
+                    const isActive = item.classList.toggle('active');
+                    const toggleBtn = item.querySelector('[data-action="toggle"]');
+                    if (toggleBtn) toggleBtn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+                }
+            };
+
+            item.addEventListener('click', toggleContent);
+            item.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleContent(e);
                 }
             });
         });
@@ -1014,6 +1093,16 @@
                     plugins: {
                         legend: {
                             display: false
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(15, 23, 42, 0.85)',
+                            titleFont: { family: 'Outfit', size: 14, weight: 'bold' },
+                            bodyFont: { family: 'Inter', size: 13 },
+                            padding: 12,
+                            cornerRadius: 8,
+                            displayColors: false,
+                            borderColor: 'rgba(255, 255, 255, 0.1)',
+                            borderWidth: 1
                         }
                     }
                 }
@@ -1041,6 +1130,36 @@
         });
 
         sections.forEach(section => observer.observe(section));
+
+        // --- Scroll Progress Bar Logic ---
+        const scrollProgress = document.getElementById('scroll-progress');
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            if(scrollProgress) scrollProgress.style.width = scrollPercent + '%';
+        });
+
+        // --- Hero Mouse Follow Logic ---
+        const heroSection = document.getElementById('hero');
+        const heroBg = document.getElementById('hero-bg');
+        if (heroSection && heroBg) {
+            heroSection.addEventListener('mousemove', (e) => {
+                const x = (e.clientX / window.innerWidth - 0.5) * 20;
+                const y = (e.clientY / window.innerHeight - 0.5) * 20;
+                heroBg.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        }
+
+        // --- Tab Visibility Title Interaction ---
+        let originalTitle = document.title;
+        document.addEventListener("visibilitychange", () => {
+            if (document.visibilityState === "hidden") {
+                document.title = "👋 Don't forget to hire Alen!";
+            } else {
+                document.title = originalTitle;
+            }
+        });
     </script>
 </body>
 
