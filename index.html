@@ -758,7 +758,7 @@
                     If you think my blend of technical depth and product strategy is a match for your team, let's talk.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="mailto:alenvadassery@gmail.com"
+                    <a href="#" id="cta-email"
                         class="inline-flex items-center justify-center px-8 py-3 bg-white text-sky-600 rounded-full font-bold text-lg hover:bg-sky-50 transition shadow-lg">
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -784,9 +784,9 @@
     <footer
         class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">
         <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center text-sm text-slate-500 dark:text-slate-400">
-            <p>&copy; 2025 Alen Vadassery. All Rights Reserved.</p>
+            <p>&copy; 2026 Alen Vadassery. All Rights Reserved.</p>
             <div class="mt-4 flex justify-center space-x-4">
-                <a href="mailto:alenvadassery@gmail.com"
+                <a href="#" id="footer-email"
                     class="text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
                     <i class="fas fa-envelope"></i>
                 </a>
@@ -1173,6 +1173,19 @@
             }
         });
 
+    </script>
+    <script>
+        // Security: Obfuscate Email to prevent bot scraping
+        setTimeout(function() {
+            const ctaEmail = document.getElementById('cta-email');
+            const footerEmail = document.getElementById('footer-email');
+            const u = "alenvadassery";
+            const d = "gmail.com";
+            const mailtoLink = "mailto:" + u + "@" + d;
+            
+            if (ctaEmail) ctaEmail.href = mailtoLink;
+            if (footerEmail) footerEmail.href = mailtoLink;
+        }, 200);
     </script>
 </body>
 
