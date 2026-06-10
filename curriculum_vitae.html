@@ -42,7 +42,7 @@
             height: 297mm;
             /* Fixed A4 height */
             display: grid;
-            grid-template-columns: 32% 68%;
+            grid-template-columns: 30% 70%;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
             position: relative;
             margin-bottom: 30px;
@@ -55,7 +55,7 @@
         .sidebar {
             background-color: var(--sidebar-bg);
             color: var(--sidebar-text);
-            padding: 40px 20px;
+            padding: 40px 20px 40px 35px; /* Top, Right, Bottom, Left (binding margin) */
             display: flex;
             flex-direction: column;
             gap: 35px;
@@ -174,12 +174,14 @@
         }
 
         .skill-item {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             background: rgba(0, 0, 0, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.4);
-            padding: 5px 12px;
+            padding: 5px 10px;
             border-radius: 20px;
-            white-space: nowrap;
+            white-space: normal;
+            text-align: center;
+            line-height: 1.2;
         }
 
         .skill-category {
@@ -457,7 +459,8 @@
 
                 <div class="skill-category">Product & Agile</div>
                 <div class="skill-list">
-                    <span class="skill-item">Product Strategy & Roadmapping</span>
+                    <span class="skill-item">Product Strategy</span>
+                    <span class="skill-item">Roadmapping</span>
                     <span class="skill-item">Agile / Scrum Leadership</span>
                     <span class="skill-item">API & Cloud Architecture</span>
                     <span class="skill-item">User Stories</span>
